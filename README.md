@@ -26,6 +26,17 @@ brew install visual-studio-code
 brew install --cask caffeine
 ```
 
+### Performance & Monitoring Tools
+
+```bash
+# Bundle analysis and performance monitoring
+brew install hyperfine  # Command-line benchmarking
+brew install --cask google-chrome  # For Lighthouse audits
+npm install -g lighthouse  # Web performance auditing
+npm install -g webpack-bundle-analyzer  # Bundle analysis
+npm install -g size-limit  # Bundle size control
+```
+
 Volta.sh
 
 ```
@@ -138,3 +149,51 @@ https://github.com/PatrickF1/fzf.fish
 
 #### Use gitstatus 
 https://github.com/romkatv/gitstatus
+
+## Performance Best Practices
+
+### Git Performance Optimization
+```bash
+# Optimize git for better performance
+git config --global core.preloadindex true
+git config --global core.fscache true
+git config --global gc.auto 256
+git config --global index.version 4
+```
+
+### Development Performance
+```bash
+# Fast package management
+yarn config set cache-folder ~/.yarn-cache
+yarn config set prefer-offline true
+
+# Node.js performance monitoring
+npm install -g clinic  # Performance profiling
+npm install -g autocannon  # HTTP benchmarking
+```
+
+### VSCode Performance Settings
+Add to VSCode settings.json:
+```json
+{
+  "typescript.disableAutomaticTypeAcquisition": true,
+  "typescript.updateImportsOnFileMove.enabled": "never",
+  "extensions.autoUpdate": false,
+  "telemetry.enableTelemetry": false,
+  "files.watcherExclude": {
+    "**/node_modules/**": true,
+    "**/.git/objects/**": true,
+    "**/.git/subtree-cache/**": true
+  }
+}
+```
+
+### Project Performance Checklist
+- [ ] Use bundle analyzer for webpack projects
+- [ ] Implement lazy loading for routes and components
+- [ ] Optimize images (WebP, lazy loading)
+- [ ] Use Lighthouse for performance audits
+- [ ] Monitor Core Web Vitals
+- [ ] Implement proper caching strategies
+- [ ] Use CDN for static assets
+- [ ] Minimize and compress CSS/JS
